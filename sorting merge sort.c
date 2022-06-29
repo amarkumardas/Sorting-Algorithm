@@ -1,5 +1,5 @@
 /* Iterative C program for merge sort bottom up.*****Time complexity O(nlogn)
-Video->20 Iterative Merge Sort study videos
+Video->https://www.youtube.com/watch?v=Eid6JEHZ7nw&t=436s
 Video->2.7.3 MergeSort in-depth Analysis abdul bari
 
 Merge is a process that combine two sorted list into single sorted list
@@ -69,7 +69,7 @@ void mergepass(int arr[],int temp[],int size,int noofelements)
 			up2=noofelements-1;
 		}
 		 merge( arr,temp, low1, up1,low2,up2);
-		 low1=up2+1;	
+		 low1=up2+1;//updating low1	
 	}
 /*when noofelements is odd then during merge one element do not get store in temp array
 due to odd when noofelements is even then during merge all element get store in temp arrray
@@ -119,81 +119,4 @@ void copy (int arr[],int temp[],int noofelements)
 		arr[i]=temp[i];
 	} 
 }
-/*
-#include<stdlib.h> wRONG CODE*********
-#include<stdio.h>
-#include<math.h>//to use floor
-#define MAX 50
-void mergesort_function(int *arr,int noofelements);
-void merge_twolist(int *arr,int *temparr,int beg,int mid,int end);
-void copy_temparr_to_original_array(int *temparr,int *arr,int noofelements);
-int main() 
-{ 
-	 int arr[MAX],i,noofelements;
-	 printf("\nEnter total number of elements: ");
-	 scanf("%d",&noofelements);
-	 printf("\nEnter elements: ");
-	 for(i=0;i<noofelements;i++)
-	 {
-	 	scanf("%d",&arr[i]);
-	 }
-	 mergesort_function(arr,noofelements);
-	 printf("\nSorted list is: ");
-	 for(i=0;i<noofelements;i++)
-	 {
-	 	printf("%d ",arr[i]);
-	 }
-	return 0; 
-} 
-void mergesort_function(int *arr,int noofelements)
-{
-  int i,pass,beg,end,mid;
-  int temparr[MAX];
-  for(pass=2; pass <= noofelements; pass= pass*2)
-  {
-  	for(i=0; i+pass-1 < noofelements ; i=i+pass)
-  	{
-  	  beg=i;
-	  end=i+pass-1;
-	  mid=floor((beg+end)/2);//we want floor value
-	  printf("mid %d",mid);
-	  merge_twolist(arr,temparr,beg,mid,end);
-	}
-	copy_temparr_to_original_array(temparr,arr,noofelements);
-  }
-  if(noofelements%2 !=0)//when total number of elemnts is odd then it will work  
-  { 
-   printf("mid %d",floor((0+noofelements-1)/2));
-   merge_twolist(arr,temparr,0,floor((0+noofelements-1)/2),noofelements-1); 
-   copy_temparr_to_original_array(temparr,arr,noofelements);                 
-  }
-}
-void merge_twolist(int *arr,int *temparr,int beg,int mid,int end)
-{
-	int k=beg,low1=beg,low2=mid+1;
-	while(low1 <= mid && low2 <= end)
-	{
-		if(arr[low1] < arr[low2])
-		{
-			temparr[k++]=arr[low1++];//add smaller value
-		}
-		else//if(arr[low1] > arr[low2])
-		temparr[k++]=arr[low2++]; //add smaller value
-	}
-	while(low1 <= mid)
-	{
-	 temparr[k++]=arr[low1++];	
-	}
-	while(low2 <= end)
-	{
-	 temparr[k++]=arr[low2++];	
-	}
-}
-void copy_temparr_to_original_array(int *temparr,int *arr,int noofelements)
-{
-	int i;
-	for(i=0;i<noofelements;i++)
-	{
-		arr[i]=temparr[i];
-	}
-}*/
+ 
